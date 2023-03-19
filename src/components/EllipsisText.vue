@@ -19,12 +19,12 @@ let premitiveText: string = "";
 function autoElipsis(
   container: HTMLElement,
   textNode: HTMLSpanElement,
-  suffix: number = 0,
   startElipsisLine: number = props.startElipsisLine
 ) {
   const str = premitiveText;
   textNode.textContent = str;
   container.style.whiteSpace = "nowrap";
+  container.style.width = "fit-content";
   const containerWidth = container.clientWidth;
   const parent = container.parentElement; // outer parents element
   const parentWidth = parent!.clientWidth || parent!.offsetWidth;
@@ -43,28 +43,27 @@ function autoElipsis(
     const endLeft = Math.floor(strNumer / 2 - delEachSide);
     const startRight = Math.ceil(strNumer / 2 + delEachSide);
 
-    const _endLeft = endLeft - suffix > 1 ? endLeft - suffix : endLeft;
-    const _startRight =
-      startRight - suffix > suffix ? startRight - suffix : startRight;
-
     switch (props.suffix) {
       case true: {
         textNode.textContent =
-          str.slice(0, _endLeft) + "..." + str.slice(_startRight);
-        container.style.whiteSpace = "normal";
+          str.slice(0, endLeft) + "..." + str.slice(startRight);
         break;
       }
       case false: {
         textNode.textContent = str.slice(0, -shouldDelNumber) + "...";
-        container.style.whiteSpace = "normal";
+
         break;
       }
     }
+    container.style.wordBreak = "break-all";
+    container.style.whiteSpace = "normal";
   }
 }
 
 const observer = new ResizeObserver(() => {
-  autoElipsis(container.value!, text.value!);
+  const containerEl: HTMLDivElement =
+    container.value! || document.getElementById("autoEllipsisWrapper");
+  autoElipsis(containerEl, text.value!);
 });
 
 nextTick(() => {
@@ -74,16 +73,9 @@ nextTick(() => {
 });
 </script>
 <template>
-  <div id="wrapper" ref="container" v-bind="$attrs">
+  <div id="autoEllipsisWrapper" ref="container" v-bind="$attrs">
     <span ref="text">
-      <slot> write some long words </slot>
+      <slot />
     </span>
   </div>
 </template>
-
-<style scoped>
-#wrapper {
-  width: fit-content;
-  word-break: break-all;
-}
-</style>
