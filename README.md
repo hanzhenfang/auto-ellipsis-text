@@ -14,7 +14,7 @@
 import {AutoEllipsis} from "auto-ellipsis-text"`
 ```
 
-Once imported, you can then wrap any words with `<AutoEllipsis>`. This will compute the width of the surrounding parent node's width, and auto calculate the max number of words can fit in the `<AutoEllipsis>`.
+Once imported, you can then wrap any words with `<AutoEllipsis>`. This will compute the width of the surrounding parent node, and auto calculate the max number of words can fit in the `<AutoEllipsis>`.
 
 ```vue
 
