@@ -9,7 +9,7 @@
     "text",
     "words"
   ],
-  "version": "0.0.7",
+  "version": "0.0.8",
   "type": "module",
   "description": "A useful component to ellipsis too long text.",
   "main": "./dist/index.umd.js",

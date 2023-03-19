@@ -7,9 +7,6 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     dedupe: ["vue"],
-    alias: {
-      "@/": new URL("./src/", import.meta.url).pathname,
-    },
   },
   build: {
     target: "esnext",
