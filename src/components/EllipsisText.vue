@@ -75,7 +75,7 @@ nextTick(() => {
 });
 </script>
 <template>
-  <div ref="container" :class="$attrs">
+  <div class="container" ref="container" v-bind="$attrs">
     <span ref="text">
       <slot> write some long words </slot>
     </span>
