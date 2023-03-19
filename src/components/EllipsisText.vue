@@ -4,10 +4,10 @@ import { ref, nextTick } from "vue";
 const props = withDefaults(
   defineProps<{
     suffix?: boolean;
-    startElipsisLine?: number;
+    startEllipsisLine?: number;
   }>(),
   {
-    startElipsisLine: 1,
+    startEllipsisLine: 1,
     suffix: false,
   }
 );
@@ -16,11 +16,7 @@ const container = ref<HTMLDivElement>();
 const text = ref<HTMLSpanElement>();
 let premitiveText: string = "";
 
-function autoElipsis(
-  container: HTMLElement,
-  textNode: HTMLSpanElement,
-  startElipsisLine: number = props.startElipsisLine
-) {
+function autoElipsis(container: HTMLElement, textNode: HTMLSpanElement) {
   const str = premitiveText;
   textNode.textContent = str;
   container.style.whiteSpace = "nowrap";
@@ -36,7 +32,7 @@ function autoElipsis(
     const strNumer = str.length;
     const avgStrWidth = textWidth / strNumer;
     const canFitStrNumber = Math.floor(
-      (parentWidth * startElipsisLine) / avgStrWidth
+      (parentWidth * props.startEllipsisLine) / avgStrWidth
     );
     const shouldDelNumber = strNumer - canFitStrNumber + 4;
     const delEachSide = shouldDelNumber / 2;
