@@ -22,7 +22,6 @@ function autoElipsis(
   suffix: number = 0,
   startElipsisLine: number = props.startElipsisLine
 ) {
-  if (!container || !textNode) return;
   const str = premitiveText;
   textNode.textContent = str;
   container.style.whiteSpace = "nowrap";
@@ -75,7 +74,7 @@ nextTick(() => {
 });
 </script>
 <template>
-  <div class="container" ref="container" v-bind="$attrs">
+  <div id="wrapper" ref="container" v-bind="$attrs">
     <span ref="text">
       <slot> write some long words </slot>
     </span>
@@ -83,7 +82,7 @@ nextTick(() => {
 </template>
 
 <style scoped>
-.container {
+#wrapper {
   width: fit-content;
   word-break: break-all;
 }
