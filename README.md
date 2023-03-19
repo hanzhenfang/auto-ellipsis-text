@@ -11,7 +11,7 @@
 ## Basic Usage
 
 ```vue
-import {AutoEllipsisi} from "auto-ellipsis-text"`
+import {AutoEllipsis} from "auto-ellipsis-text"`
 ```
 
 Once imported, you can then wrap any words with `<AutoEllipsis>`. This will compute the width of the surrounding parent node's width, and auto calculate the max number of words can fit in the `<AutoEllipsis>`.
@@ -103,3 +103,11 @@ And you can use the two props at the sametime.Like blow this.
 The result :
 
 ![picture 4](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230319-221425864.png)  
+
+## Auto Resize
+
+The component will auto calculate the number of words in the containner if the browser window is resized, too!
+
+## License
+
+MIT © hanzhenfang
