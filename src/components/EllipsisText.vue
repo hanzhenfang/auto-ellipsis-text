@@ -25,16 +25,16 @@ function autoElipsis(
   const str = premitiveText;
   textNode.textContent = str;
   container.style.whiteSpace = "nowrap";
-  const containerWidth = container.clientWidth; //容器的宽度
-  const parent = container.parentElement; // 外部父容器传递过来的最大宽度
-  const parentWidth = parent!.clientWidth || parent!.offsetWidth; //优先使用内容区宽度
+  const containerWidth = container.clientWidth;
+  const parent = container.parentElement; // outer parents element
+  const parentWidth = parent!.clientWidth || parent!.offsetWidth;
   if (containerWidth <= parentWidth) {
     textNode.textContent = str;
     return;
   } else {
     const textWidth = textNode.offsetWidth;
     const strNumer = str.length;
-    const avgStrWidth = textWidth / strNumer; //平均每个字符的宽度
+    const avgStrWidth = textWidth / strNumer;
     const canFitStrNumber = Math.floor(
       (parentWidth * startElipsisLine) / avgStrWidth
     );

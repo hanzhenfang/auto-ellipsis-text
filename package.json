@@ -1,8 +1,23 @@
 {
-  "name": "elipsis-text",
-  "private": "false",
+  "name": "auto-ellipsis-text",
+  "author": "hanzhenfang",
+  "repository": "hanzhenfang/ellipsis-text",
+  "license": "MIT",
+  "keywords": [
+    "auto",
+    "ellipsis",
+    "text",
+    "words"
+  ],
   "version": "0.0.1",
   "type": "module",
+  "description": "A useful component to ellipsis too long text.",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",

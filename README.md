@@ -2,6 +2,6 @@
 
 ## Install
 
- `pnpm i ellipsis-text`
+ `pnpm i auto-ellipsis-text`
 
 ## Usage
