@@ -9,7 +9,7 @@
     "ellipsisi text",
     "auto ellipsisi words"
   ],
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "description": "A useful component to ellipsis too long text.",
   "main": "./dist/index.umd.js",
