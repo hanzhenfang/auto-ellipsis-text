@@ -11,6 +11,12 @@
 ## Basic Usage
 
 ```vue
+import {AutoEllipsisi} from "auto-ellipsis-text"`
+```
+
+Once imported, you can then wrap any words with `<AutoEllipsis>`. This will compute the width of the surrounding parent node's width, and auto calculate the max number of words can fit in the `<AutoEllipsis>`.
+
+```vue
 
 <script setup lang="ts">
 import { AutoEllipsis } from "auto-ellipsis-text";
@@ -24,8 +30,8 @@ import { AutoEllipsis } from "auto-ellipsis-text";
         <span> Somelongword_Somelongword_Somelongword_Somelongword_ </span>
       </div>
 
-      <!-- When you want to ellipsis the words on the "width" had be made sure.
-       Below the parent element's width is 200px
+      <!-- When you want to ellipsis the words on a "width" had be made sure container.
+      Just like the Below element that width is 200px
       -->
       <div class="w-200px">
         <AutoEllipsis>
@@ -36,6 +42,8 @@ import { AutoEllipsis } from "auto-ellipsis-text";
   </div>
 </template>
 ```
+
+The result will be like below this.
 
 ![picture 1](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230319-215252302.png)  
 
@@ -50,12 +58,7 @@ The surrfix props can help you.
 - **surrfix**:boolean
 
 ```vue
-        <!-- The primitive words -->
         <span> somePictureInfomationYouWantToReserveTheSurrfix.jpg </span>
-
-      <!-- When you want to ellipsis the words on the "width" had be made sure.
-       Below the parent element's width is 200px
-      -->
       <div class="w-200px">
         <AutoEllipsis :suffix="true">
           somePictureInfomationYouWantToReserveTheSurrfix.jpg
@@ -64,6 +67,8 @@ The surrfix props can help you.
 
 ```
 
+The result will be like below this.
+
 ![picture 2](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230319-215642827.png)  
 
 Sometimes you may want when the height of the two rows then starts to ellipsis.You also can do it easily use the **startEllpsisLine** props.
@@ -71,31 +76,30 @@ Sometimes you may want when the height of the two rows then starts to ellipsis.Y
 - start-ellpsis-line:number
 
 ```vue
-    <!-- The primitive words -->
         <span>
           somemePictureInfomationYouWantToReserveTheSurrfix.jpgsomePicture.jpg
         </span>
       </div>
-
-      <!-- When you want to ellipsis the words on the "width" had be made sure.
-       Below the parent element's width is 200px
-      -->
       <div class="w-200px">
-        <AutoEllipsis :start-elipsis-line="2">
+        <AutoEllipsis :start-ellipsis-line="2">
           somePictureInfomationYouWantToReserveTheSurrfix.jpgsomePictureInfomationYouWantToReserveTheSurrfix.jpgsomePictureInfomationYouWantToReserveTheSurrfix.jpg
         </AutoEllipsis>
       </div>
 
 ```
+
+The result will be like below this.
 
 ![picture 3](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230319-220904001.png)  
 
 And you can use the two props at the sametime.Like blow this.
 
 ```vue
-  <AutoEllipsis :start-elipsis-line="2" :suffix="true">
+  <AutoEllipsis :start-ellipsis-line="2" :suffix="true">
           somePictureInfomationYouWantToReserveTheSurrfix.jpgsomePictureInfomationYouWantToReserveTheSurrfix.jpgsomePictureInfomationYouWantToReserveTheSurrfix.jpg
         </AutoEllipsis>
 ```
+
+The result :
 
 ![picture 4](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230319-221425864.png)  
