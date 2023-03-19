@@ -7,8 +7,8 @@ const props = withDefaults(
     startElipsisLine?: number;
   }>(),
   {
-    startElipsisLine: 2,
-    suffix: true,
+    startElipsisLine: 1,
+    suffix: false,
   }
 );
 
