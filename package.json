@@ -9,7 +9,7 @@
     "text",
     "words"
   ],
-  "version": "0.0.1",
+  "version": "0.0.4",
   "type": "module",
   "description": "A useful component to ellipsis too long text.",
   "main": "./dist/index.umd.js",
@@ -20,16 +20,16 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "build": "vite build && vue-tsc --emitDeclarationOnly && mv dist/src dist/types",
+    "preview": "vite preview",
+    "typecheck": "vue-tsc --noEmit",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "unocss": "^0.50.6",
     "vue": "^3.2.47"
   },
   "devDependencies": {
-    "@unocss/preset-uno": "^0.50.6",
-    "@unocss/vite": "0.45.12",
+    "@types/node": "18.11.9",
     "@vitejs/plugin-vue": "4.0.0",
     "typescript": "^4.9.3",
     "vite": "4.0.0",

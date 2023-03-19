@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, useSlots, onMounted, nextTick } from "vue";
+import { ref, nextTick } from "vue";
 
 const props = withDefaults(
   defineProps<{
@@ -22,6 +22,7 @@ function autoElipsis(
   suffix: number = 0,
   startElipsisLine: number = props.startElipsisLine
 ) {
+  if (!container || !textNode) return;
   const str = premitiveText;
   textNode.textContent = str;
   container.style.whiteSpace = "nowrap";
@@ -74,9 +75,16 @@ nextTick(() => {
 });
 </script>
 <template>
-  <div ref="container" class="color-black w-fit break-all">
+  <div ref="container" :class="$attrs">
     <span ref="text">
-      <slot />
+      <slot> write some long words </slot>
     </span>
   </div>
 </template>
+
+<style scoped>
+.container {
+  width: fit-content;
+  word-break: break-all;
+}
+</style>
