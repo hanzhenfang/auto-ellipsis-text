@@ -6,7 +6,7 @@
 
  `pnpm i auto-ellipsis-text`
 
- `yarn i auto-ellipsis-text`
+ `yarn add auto-ellipsis-text`
 
 ## Basic Usage
 
