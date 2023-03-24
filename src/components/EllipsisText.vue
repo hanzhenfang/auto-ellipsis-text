@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, nextTick } from "vue";
+import { ref, computed, nextTick } from "vue";
 
 const props = withDefaults(
   defineProps<{
@@ -12,9 +12,12 @@ const props = withDefaults(
   }
 );
 
+let premitiveText: string = "";
 const container = ref<HTMLDivElement>();
 const text = ref<HTMLSpanElement>();
-let premitiveText: string = "";
+const cssEntirely = computed<boolean>(() => {
+  return !props.suffix && props.startEllipsisLine === 1;
+});
 
 function autoElipsis(container: HTMLElement, textNode: HTMLSpanElement) {
   const str = premitiveText;
@@ -27,6 +30,12 @@ function autoElipsis(container: HTMLElement, textNode: HTMLSpanElement) {
   if (containerWidth <= parentWidth) {
     textNode.textContent = str;
     return;
+  } else if (cssEntirely.value) {
+    container.style.width = parentWidth + "px";
+    container.style.whiteSpace = "nowrap";
+    container.style.textOverflow = "ellipsis";
+    container.style.overflow = "hidden";
+    return;
   } else {
     const textWidth = textNode.offsetWidth;
     const strNumer = str.length;
@@ -34,7 +43,7 @@ function autoElipsis(container: HTMLElement, textNode: HTMLSpanElement) {
     const canFitStrNumber = Math.floor(
       (parentWidth * props.startEllipsisLine) / avgStrWidth
     );
-    const shouldDelNumber = strNumer - canFitStrNumber + 4;
+    const shouldDelNumber = strNumer - canFitStrNumber + 1.5;
     const delEachSide = shouldDelNumber / 2;
     const endLeft = Math.floor(strNumer / 2 - delEachSide);
     const startRight = Math.ceil(strNumer / 2 + delEachSide);
