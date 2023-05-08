@@ -108,8 +108,11 @@ The result :
 
 new props(2023/5/8) => boundaryValue:number
 
-This component currently has a bug that causes the page to appear confused due to the width of Chinese characters or numbers. </br>
-To temporarily resolve this issue, I added a props to let the user manually enter a number to increase the number to be deleted.
+This component currently has a bug that causes the page to appear confused due to the width of Chinese characters 、 numbers or special symbol.  
+
+![picture 5](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230508-191257047.png)  
+
+To temporarily resolve this issue, I added a props to let the user manually enter a number to increase the number to be deleted.Here's how to use the "boundaryValue" prps.
 
 ```vue
         <AutoEllipsis
@@ -120,6 +123,10 @@ To temporarily resolve this issue, I added a props to let the user manually ente
           SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_.jpg
         </AutoEllipsis>
 ```
+
+The result
+
+![picture 6](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230508-191540600.png)
 
 ## Auto Resize
 
