@@ -104,6 +104,23 @@ The result :
 
 ![picture 4](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230319-221425864.png)  
 
+## Bugs
+
+new props(2023/5/8) => boundaryValue:number
+
+This component currently has a bug that causes the page to appear confused due to the width of Chinese characters or numbers. </br>
+To temporarily resolve this issue, I added a props to let the user manually enter a number to increase the number to be deleted.
+
+```vue
+        <AutoEllipsis
+          :start-ellipsis-line="2"
+          :suffix="true"
+          :boundary-value="1"
+        >
+          SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_.jpg
+        </AutoEllipsis>
+```
+
 ## Auto Resize
 
 The component will auto calculate the number of words in the containner if the browser window is resized, too!
