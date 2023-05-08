@@ -5,10 +5,12 @@ const props = withDefaults(
   defineProps<{
     suffix?: boolean;
     startEllipsisLine?: number;
+    boundaryValue?: number;
   }>(),
   {
     startEllipsisLine: 1,
     suffix: false,
+    boundaryValue: 0,
   }
 );
 
@@ -43,7 +45,8 @@ function autoElipsis(container: HTMLElement, textNode: HTMLSpanElement) {
     const canFitStrNumber = Math.floor(
       (parentWidth * props.startEllipsisLine) / avgStrWidth
     );
-    const shouldDelNumber = strNumer - canFitStrNumber + 1.5;
+    const shouldDelNumber =
+      strNumer - canFitStrNumber + 1.5 + props.boundaryValue;
     const delEachSide = shouldDelNumber / 2;
     const endLeft = Math.floor(strNumer / 2 - delEachSide);
     const startRight = Math.ceil(strNumer / 2 + delEachSide);
