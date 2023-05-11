@@ -1,5 +1,9 @@
 # Auto Ellipsis Text For Vue3 Projects
 
+[English doc](./README.md)
+
+[中文文档](./README-CN.md)
+
 ## Install
 
  `npm i auto-ellipsis-text`
