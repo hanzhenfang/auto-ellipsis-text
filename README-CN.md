@@ -1,7 +1,9 @@
 # Auto Ellipsis Text For Vue3 Projects
 
+[English doc](./README.md)
 
-## [EN doc](./README.md)
+[中文文档](./README-CN.md)
+
 ## 安装
 
  `npm i auto-ellipsis-text`
@@ -15,6 +17,7 @@
 ```vue
 import {AutoEllipsis} from "auto-ellipsis-text"
 ```
+
 引入以后，你可以用`<AutoEllipsis>`把文字包起来。 它会自动计算父元素的宽度, 并自动计算`<AutoEllipsis>`中可容纳的最大字符数量。
 
 ```vue
@@ -31,8 +34,9 @@ import { AutoEllipsis } from "auto-ellipsis-text";
         <span> Somelongword_Somelongword_Somelongword_Somelongword_ </span>
       </div>
 
-      <!-- 当你想在一个宽度已经确定的容器里使文字呈现省略效果
+      <!-- 当你希望在一个宽度已经确定的容器里让文字呈现省略效果时，
       比如下面这个容器的宽度是200px
+      你可以这样使用
       -->
       <div class="w-200px">
         <AutoEllipsis>
@@ -50,7 +54,7 @@ import { AutoEllipsis } from "auto-ellipsis-text";
 
 ## 可选的参数
 
-这里有两个可选的参数能帮你解锁更多的想法。
+这里有两个可选的参数能帮你解锁更多的使用场景。
 
   有时你可能会想要保留文件的后缀信息, 比如 :picture1.jpg、picture.png、music.mp4之类的……
 
@@ -72,9 +76,9 @@ import { AutoEllipsis } from "auto-ellipsis-text";
 
 ![picture 2](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230319-215642827.png)  
 
-有时你可能会希望实现从第二行开始省略的效果。那么你可以使用`start-ellipsis-line`参数来轻松做到这一点。
+有时你可能会希望从第二行才开始省略文字。那么你可以使用`start-ellipsis-line` **props** 来轻松做到这一点。
 
-- start-ellpsis-line:number
+- **start-ellpsis-line**:number
 
 ```vue
         <span>
@@ -93,7 +97,7 @@ import { AutoEllipsis } from "auto-ellipsis-text";
 
 ![picture 3](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230319-220904001.png)  
 
-你可以同时使用上述两个参数，就像下面这样。
+当然，你也可以同时使用上述两个参数，就像下面这样。
 
 ```vue
   <AutoEllipsis :start-ellipsis-line="2" :suffix="true">
@@ -107,13 +111,17 @@ import { AutoEllipsis } from "auto-ellipsis-text";
 
 ## Bugs
 
-new props(2023/5/8) => boundaryValue:number
+**new props** (2023/5/8) =>
 
-这个组件目前存在着一个bug，由于汉字、数字或特殊符号的宽度，导致渲染出来的结果可能会混乱。
+ **boundaryValue**:number
+
+这个组件目前存在着一个bug，由于汉字、数字或特殊符号的宽度的不同，所以组件内部计算需要删除的文字个数会有误差。就像下面图片展示的一样。
 
 ![picture 5](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230508-191257047.png)  
 
-为了暂时解决这个问题，我新增了一个参数让用户可以手动增加被删除的字符数量。这里是使用`boundaryValue`参数的例子。
+只不过目前由于找不到最佳的解决方案，所以为了暂时解决这个问题，我新增了一个参数让用户可以手动增加被删除的字符数量。
+
+这里是使用 `boundaryValue`参数的例子。
 
 ```vue
         <AutoEllipsis
@@ -131,7 +139,7 @@ new props(2023/5/8) => boundaryValue:number
 
 ## Auto Resize
 
-如果浏览器窗口发生了resize，这个组件也会自动计算容器里的字符数量。
+如果浏览器窗口的大小由于用户拖拽发生变化时，这个组件也会自动计算容器里的字符数量。
 
 ## License
 
