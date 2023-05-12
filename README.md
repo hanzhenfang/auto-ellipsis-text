@@ -55,11 +55,11 @@ The result will be like below this.
 
 There have two additional props help you unlock more useage scenarios.
 
-  Sometime you may want to reserve the file surrfix infomathion, like :picture1.jpg、picture.png、music.mp4 etc...
+  Sometime you may want to keep the file suffix, like :picture1.jpg、picture.png、music.mp4 etc...
 
-The surrfix props can help you.
+The suffix props can help you.
 
-- **surrfix**:boolean
+- **suffix**:boolean
 
 ```vue
         <span> somePictureInfomationYouWantToReserveTheSurrfix.jpg </span>
@@ -75,9 +75,9 @@ The result will be like below this.
 
 ![picture 2](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230319-215642827.png)  
 
-Sometimes you may want when the height of the two rows then starts to ellipsis.You also can do it easily use the **startEllpsisLine** props.
+Sometimes you may want to see the ellipsis from the second line.You can do it easily by using the **start-ellipsis-line** props.
 
-- start-ellpsis-line:number
+- start-ellipsis-line:number
 
 ```vue
         <span>
@@ -96,7 +96,7 @@ The result will be like below this.
 
 ![picture 3](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230319-220904001.png)  
 
-And you can use the two props at the sametime.Like blow this.
+And you can use both of this two props at the same time. Like below.
 
 ```vue
   <AutoEllipsis :start-ellipsis-line="2" :suffix="true">
@@ -116,7 +116,7 @@ This component currently has a bug that causes the page to appear confused due t
 
 ![picture 5](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230508-191257047.png)  
 
-To temporarily resolve this issue, I added a props to let the user manually enter a number to increase the number to be deleted.Here's how to use the "boundaryValue" prps.
+To temporarily solve this problem, I added a props to let the user manually enter a number to increase the number to be deleted.Here's how to use the "boundaryValue" props.
 
 ```vue
         <AutoEllipsis
@@ -134,7 +134,7 @@ The result
 
 ## Auto Resize
 
-The component will auto calculate the number of words in the containner if the browser window is resized, too!
+The component will auto calculate the number of words in the container if the browser window is resized, too!
 
 ## License
 
