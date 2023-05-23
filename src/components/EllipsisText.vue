@@ -22,6 +22,12 @@ const initHeightStr = ref<HTMLSpanElement>(); // 用于计算文本初始高度
 const cssEntirely = computed<boolean>(() => {
   return !props.suffix && props.startEllipsisLine === 1;
 });
+
+/* *
+ * 总体的思路是根据实际高度去调整字体大小，防止溢出
+ * 能够根据字体大小去调整字数
+ * */ 
+
 //开启保留后缀 自动调整文本字符数量
 function adjustWordSuffix(endLeft: number, startRight: number, str: string, canFitHeight: number): string {
   initStr.value!.textContent = str.slice(0, endLeft + 1) + "..." + str.slice(startRight);
