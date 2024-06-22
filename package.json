@@ -9,7 +9,7 @@
     "ellipsisi text",
     "auto ellipsisi words"
   ],
-  "version": "0.1.4",
+  "version": "0.1.5",
   "type": "module",
   "description": "A useful component to auto ellipsis too long text.",
   "main": "./dist/index.umd.js",
@@ -23,7 +23,7 @@
     "build": "vite build && vue-tsc --emitDeclarationOnly && mv dist/src dist/types",
     "preview": "vite preview",
     "typecheck": "vue-tsc --noEmit",
-    "prepublishOnly": "npm run build  --wtach"
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@types/node": "18.11.9",

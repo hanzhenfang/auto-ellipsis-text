@@ -6,11 +6,11 @@
 
 ## Install
 
- `npm i auto-ellipsis-text`
+`npm i auto-ellipsis-text`
 
- `pnpm i auto-ellipsis-text`
+`pnpm i auto-ellipsis-text`
 
- `yarn add auto-ellipsis-text`
+`yarn add auto-ellipsis-text`
 
 ## Basic Usage
 
@@ -21,7 +21,6 @@ import {AutoEllipsis} from "auto-ellipsis-text"
 Once imported, you can then wrap any words with `<AutoEllipsis>`. This will automatic compute the width of the surrounding parent node, and auto calculate the max number of words can fit in the `<AutoEllipsis>`.
 
 ```vue
-
 <script setup lang="ts">
 import { AutoEllipsis } from "auto-ellipsis-text";
 </script>
@@ -49,31 +48,30 @@ import { AutoEllipsis } from "auto-ellipsis-text";
 
 The result will be like below this.
 
-![picture 1](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230319-215252302.png)  
+![picture 1](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230319-215252302.png)
 
 ## Additional options
 
 There have two additional props help you unlock more useage scenarios.
 
-  Sometime you may want to keep the file suffix, like :picture1.jpg、picture.png、music.mp4 etc...
+Sometime you may want to keep the file suffix, like :picture1.jpg、picture.png、music.mp4 etc...
 
 The suffix props can help you.
 
 - **suffix**:boolean
 
 ```vue
-        <span> somePictureInfomationYouWantToReserveTheSurrfix.jpg </span>
-      <div class="w-200px">
+<span> somePictureInfomationYouWantToReserveTheSurrfix.jpg </span>
+<div class="w-200px">
         <AutoEllipsis :suffix="true">
           somePictureInfomationYouWantToReserveTheSurrfix.jpg
         </AutoEllipsis>
       </div>
-
 ```
 
 The result will be like below this.
 
-![picture 2](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230319-215642827.png)  
+![picture 2](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230319-215642827.png)
 
 Sometimes you may want to see the ellipsis from the second line.You can do it easily by using the **start-ellipsis-line** props.
 
@@ -94,36 +92,32 @@ Sometimes you may want to see the ellipsis from the second line.You can do it ea
 
 The result will be like below this.
 
-![picture 3](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230319-220904001.png)  
+![picture 3](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230319-220904001.png)
 
 And you can use both of this two props at the same time. Like below.
 
 ```vue
-  <AutoEllipsis :start-ellipsis-line="2" :suffix="true">
+<AutoEllipsis :start-ellipsis-line="2" :suffix="true">
           somePictureInfomationYouWantToReserveTheSurrfix.jpgsomePictureInfomationYouWantToReserveTheSurrfix.jpgsomePictureInfomationYouWantToReserveTheSurrfix.jpg
         </AutoEllipsis>
 ```
 
 The result :
 
-![picture 4](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230319-221425864.png)  
+![picture 4](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230319-221425864.png)
 
 ## Bugs
 
 new props(2023/5/8) => boundaryValue:number
 
-This component currently has a bug that causes the page to appear confused due to the width of Chinese characters 、 numbers or special symbol.  
+This component currently has a bug that causes the page to appear confused due to the width of Chinese characters 、 numbers or special symbol.
 
-![picture 5](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230508-191257047.png)  
+![picture 5](https://cdn.jsdelivr.net/gh/hanzhenfang/vite-vue-ts@master/README/IMG_20230508-191257047.png)
 
 To temporarily solve this problem, I added a props to let the user manually enter a number to increase the number to be deleted.Here's how to use the "boundaryValue" props.
 
 ```vue
-        <AutoEllipsis
-          :start-ellipsis-line="2"
-          :suffix="true"
-          :boundary-value="1"
-        >
+<AutoEllipsis :start-ellipsis-line="2" :suffix="true" :boundary-value="1">
           SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_SomelongWord_.jpg
         </AutoEllipsis>
 ```
