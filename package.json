@@ -11,7 +11,7 @@
   ],
   "version": "0.1.4",
   "type": "module",
-  "description": "A useful component to ellipsis too long text.",
+  "description": "A useful component to auto ellipsis too long text.",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
   "types": "./dist/types/index.d.ts",
@@ -23,7 +23,7 @@
     "build": "vite build && vue-tsc --emitDeclarationOnly && mv dist/src dist/types",
     "preview": "vite preview",
     "typecheck": "vue-tsc --noEmit",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build  --wtach"
   },
   "devDependencies": {
     "@types/node": "18.11.9",
