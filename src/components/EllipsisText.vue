@@ -33,11 +33,6 @@ function autoElipsis(container: HTMLElement, textNode: HTMLSpanElement) {
   if (!parent) return;
   const parentWidth = parent.clientWidth || parent.offsetWidth;
 
-  const fontSize = getComputedStyle(textNode)["fontSize"];
-  textNode.style.height = parseFloat(fontSize) * props.startEllipsisLine + "px";
-
-  const ultimatelyHeight = container.clientHeight * props.startEllipsisLine; // use to estimate the finally result in startEllipsisLine prop is greater than 1
-
   function justCssfn() {
     container.style.width = parentWidth + "px";
     container.style.whiteSpace = "nowrap";
@@ -66,6 +61,11 @@ function autoElipsis(container: HTMLElement, textNode: HTMLSpanElement) {
     if (strNumer - canFitStrNumber >= 0) {
       let flag = props.boundaryValue;
       let containe_height = 0;
+
+      const fontSize = getComputedStyle(textNode)["fontSize"];
+      textNode.style.height =
+        parseFloat(fontSize) * props.startEllipsisLine + "px";
+      const ultimatelyHeight = container.clientHeight * props.startEllipsisLine; // use to estimate the finally result when startEllipsisLine prop is greater than 1
       do {
         const shouldDelNumber = strNumer - canFitStrNumber + 1.5 + flag;
         const delEachSide = shouldDelNumber / 2;
@@ -105,7 +105,7 @@ nextTick(() => {
   if (primitiveText === "") return;
   const app = document.getElementById(props.rootDivId);
   if (!app) autoElipsis(container.value, text.value!);
-  else observer.observe(app);
+  else observer.observe(container.value);
 });
 </script>
 <template>
